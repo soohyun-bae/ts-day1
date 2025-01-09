@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016", 
+    "target": "ES6", 
     "module": "commonjs",  
     "esModuleInterop": true, 
     "forceConsistentCasingInFileNames": true, 
@@ -11,5 +11,5 @@
     "noUncheckedIndexedAccess": true,
     // "lib": ["ES2022", "DOM"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/ch3/generisrc/ch3/generic.tsneric.ts", "srsrc/ch3/ch3.tsch3.js", "ch3.ts"]
 }
