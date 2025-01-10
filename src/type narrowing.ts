@@ -65,3 +65,34 @@ const errorResponse = new ErrorResponse();
 
 handleApiResponse(apiResponse)
 handleApiResponse(errorResponse)
+
+// 타입 가드(type predicates)
+function isErrorResponse(response: ApiResponse | ErrorResponse): response is ErrorResponse {
+  return (response as ErrorResponse).message !== undefined;
+}
+
+const response = { message:'error..'};
+if(isErrorResponse(response)) {
+  console.log(response.message)
+}
+
+// 식별 가능한 유니언 타입 (discriminated union)
+type SuccessResponse = {
+  type: 'success',
+  data: any;
+}
+
+type ErrorResponseType = {
+  type: 'error',
+  message: string
+}
+
+type ApiResponseType = SuccessResponse | ErrorResponseType;
+
+function handleResponse(response: ApiResponse) {
+  if(response.type === 'success') {
+    console.log('data', response.data)
+  } else {
+    console.log(response.message)
+  }
+}
